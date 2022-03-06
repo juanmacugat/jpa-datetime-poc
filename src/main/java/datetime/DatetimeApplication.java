@@ -26,8 +26,8 @@ public class DatetimeApplication {
             SchedulingSlot slot = new SchedulingSlot();
             slot.id(1L);
             slot.cityCode("BCN");
-            slot.startTime(Instant.ofEpochMilli(Timestamp.valueOf(LocalDateTime.now()).getTime()));
-            slot.endTime(Instant.ofEpochMilli(Timestamp.valueOf(LocalDateTime.now().plusMinutes(30)).getTime()));
+            slot.startTime(Instant.ofEpochMilli(Timestamp.valueOf(LocalDateTime.of(LocalDate.of(2022,3,22), LocalTime.of(10,00))).getTime()));
+            slot.endTime(Instant.ofEpochMilli(Timestamp.valueOf(LocalDateTime.of(LocalDate.of(2022,3,22), LocalTime.of(10,30))).getTime()));
             repository.save(slot);
         };
     }
