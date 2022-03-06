@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,9 +13,9 @@ public class SchedulingSlot {
     @Id
     private Long id;
     @Column(name = "start_time_utc", nullable = false)
-    private LocalDateTime startTime;
+    private Instant startTime;
     @Column(name = "end_time_utc", nullable = false)
-    private LocalDateTime endTime;
+    private Instant endTime;
     @Embedded
     private CityCode cityCode;
 
@@ -25,11 +26,11 @@ public class SchedulingSlot {
     public SchedulingSlot(){
     }
 
-    public void startTime(final LocalDateTime startTime) {
+    public void startTime(final Instant startTime) {
         this.startTime = startTime;
     }
 
-    public void endTime(final LocalDateTime endTime){
+    public void endTime(final Instant endTime){
         this.endTime = endTime;
     }
 

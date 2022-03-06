@@ -8,7 +8,7 @@ services:
       MYSQL_PASSWORD: "glovo"
       MYSQL_ROOT_PASSWORD: "root"
     volumes:
-      - ./docker-compose-data/mysql:/var/lib/mysql
+      - ./src/main/resources/scripts:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
   adminer:

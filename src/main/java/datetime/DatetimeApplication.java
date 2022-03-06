@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -24,8 +26,8 @@ public class DatetimeApplication {
             SchedulingSlot slot = new SchedulingSlot();
             slot.id(1L);
             slot.cityCode("BCN");
-            slot.startTime(LocalDateTime.of(LocalDate.of(2022,3,22), LocalTime.of(10,00)));
-            slot.endTime(LocalDateTime.of(LocalDate.of(2022,3,22), LocalTime.of(10,30)));
+            slot.startTime(Instant.ofEpochMilli(Timestamp.valueOf(LocalDateTime.now()).getTime()));
+            slot.endTime(Instant.ofEpochMilli(Timestamp.valueOf(LocalDateTime.now().plusMinutes(30)).getTime()));
             repository.save(slot);
         };
     }
