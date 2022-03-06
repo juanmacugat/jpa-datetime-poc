@@ -7,9 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 
 @SpringBootApplication
 public class DatetimeApplication {
@@ -24,8 +22,8 @@ public class DatetimeApplication {
             SchedulingSlot slot = new SchedulingSlot();
             slot.id(1L);
             slot.cityCode("BCN");
-            slot.startTime(LocalDateTime.of(LocalDate.of(2022,3,22), LocalTime.of(10,00)));
-            slot.endTime(LocalDateTime.of(LocalDate.of(2022,3,22), LocalTime.of(10,30)));
+            slot.startTime(ZonedDateTime.of(LocalDateTime.of(LocalDate.of(2022,3,22), LocalTime.of(10,00)), ZoneId.of("UTC")));
+            slot.endTime(ZonedDateTime.of(LocalDateTime.of(LocalDate.of(2022,3,22), LocalTime.of(10,30)), ZoneId.of("UTC")));
             repository.save(slot);
         };
     }
